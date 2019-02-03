@@ -7,11 +7,18 @@ import MyReactNative from './Components/Routes/ReactNative';
 import Routes from './Components/Routes/Routes';
 import Quiz1 from './Components/Quizes/Quiz1';
 import Quiz2 from './Components/Quizes/Quiz2';
+import SignIn from './Components/SignIn';
 class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      isUser: false,
+    }
+  }
   render() {
     return (
-      <div className="App teal lighten-5">
-        <Router>
+      <div className="App">
+      {this.state.isUser ? (<Router>
           <Fragment>
           <NavBar />
           <Route exact path="/" component={Routes} />
@@ -21,7 +28,7 @@ class App extends Component {
           <Route exact path="/Quiz1" component={Quiz1} />
           <Route exact path="Quiz2" component={Quiz2}/>
           </Fragment>
-        </Router>
+        </Router>) : (<SignIn />)}
       </div>
     );
   }
