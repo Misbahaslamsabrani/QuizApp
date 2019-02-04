@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom" 
+import { Link } from "react-router-dom" ;
+import { connect } from "react-redux";
 class Routes extends Component {
     constructor(props) {
         super(props);
@@ -10,7 +11,7 @@ class Routes extends Component {
             <div className="teal lighten-5">
                 <br />
                 <div className="center">
-                <h4>Welcome Misbah!</h4>
+                <h4>Welcome {this.props.username}!</h4>
                 </div>
                 <br /><br />
                 <div className="row">
@@ -33,5 +34,9 @@ class Routes extends Component {
         );
     }
 }
-
-export default Routes;
+const mapStateToProps = (state) => {
+    return {
+        username : state.signIn.userName,
+    }
+}
+export default connect(mapStateToProps)(Routes);

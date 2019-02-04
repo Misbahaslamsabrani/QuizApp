@@ -8,17 +8,17 @@ import Routes from './Components/Routes/Routes';
 import Quiz1 from './Components/Quizes/Quiz1';
 import Quiz2 from './Components/Quizes/Quiz2';
 import SignIn from './Components/SignIn';
+import { connect } from "react-redux";
 class App extends Component {
   constructor(){
     super();
     this.state = {
-      isUser: false,
     }
   }
   render() {
     return (
       <div className="App">
-      {this.state.isUser ? (<Router>
+      {this.props.user ? (<Router>
           <Fragment>
           <NavBar />
           <Route exact path="/" component={Routes} />
@@ -33,5 +33,10 @@ class App extends Component {
     );
   }
 }
-
-export default App;
+const mapStateToProps = (state) => {
+  console.log(state)
+  return {
+    user: state.signIn.isUser,
+  }
+}
+export default connect(mapStateToProps)(App);

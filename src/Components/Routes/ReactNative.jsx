@@ -2,12 +2,12 @@ import React from 'react';
 import {Link} from "react-router-dom"
 const MyReactNative = () => {
     return (
-        <div className="container">
+        <div className="teal lighten-5">
         <br />
         <br />
             <div className="row">
                 <div className="col s6 l6 offset-l3">
-                    <div className="card">
+                    <div className="card teal lighten-4">
                         <div className="card-content">
                             <div className="card-title">
                                 <h4>React Native</h4>
