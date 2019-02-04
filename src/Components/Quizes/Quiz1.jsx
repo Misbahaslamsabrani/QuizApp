@@ -5,8 +5,8 @@ class Quiz1 extends Component {
     constructor() {
         super()
         this.state = {
-            totalQuestions: 12,
-            totalCorrect: 0,
+            show: true,
+            key: "",
             ques0: "",
             ques1: "",
             ques2: "",
@@ -45,6 +45,14 @@ class Quiz1 extends Component {
                 }]
         }
     }
+    submitKey = () => {
+        if(this.state.key === "123"){
+            this.setState({show: false, key: ""})
+        }
+    }
+    whenEmpty = () => {
+        return this.state.key === '';
+    }
     whenChange = (event) => {
         const { name, value } = event.target;
         this.setState({ [name]: value })
@@ -62,44 +70,66 @@ class Quiz1 extends Component {
         const percentage = score / totalQuestions * 100;
         const success = percentage >= 60 ? (true) : (false)
         this.props.result(score, totalQuestions, percentage, success)
+        this.setState({show: true})
     }
     render() {
         return (
-            <div className="teal lighten-5">
-            <div className="container">
-                <div><h5>React Quiz 1</h5></div>
-                {this.props.quizgiven ? (<div>
-                    {this.props.quizsuccess ? (<div>
-                        <div className="teal-text"><h5>CONGRATULATIONS! You have passed.</h5></div>
-                        <br />
-                        Out Of <b> {this.props.quiztq} </b> Answered <b>{this.props.quizs}</b> Correctly.
-                <br />
-                        Your Percentage: <b>{this.props.quizper}% </b></div>) : (
-                            <div>
-                                <div className="red-text"><h4>Sorry! You have failed.</h4></div>
-                                <br />
-                                Out Of <b> {this.props.quiztq} </b> Answered <b>{this.props.quizs}</b> Correctly.
-            <br />
-                                Your Percentage: <b>{this.props.quizper}% </b></div>
-                        )
-                    }
-                </div>) : (
+            <div>
+                <div className="container">
+                    {this.state.show ? (<div>
                         <div>
-                            <ol>
-                                {this.state.Quiz.map((v, i) => <li key={i}><h6 className="teal-text">{v.question}</h6>
-                                    {v.allOptions.map((vv, ii) => {
-                                        return <p key={ii}>
-                                            <label><input onChange={this.whenChange} value={vv} name={"ques" + i} type="radio" />
-                                                <span>{vv}</span></label>
-                                        </p>
-                                    })}
-                                    <br />
-                                </li>
-                                )}
-                            </ol>
-                            <button className="btn" onClick={this.whenSubmit}>Submit</button>
+                            <h3 className="teal-text">Welcome to React</h3> <br />
+                            <div className="flow-text">
+                              
+                                    Quiz Title : React Quiz 1 <br />
+                                    Passing Score : 60 <br />
+                                    No. of Attempts Allowed : 1 <br />
+                                
+                            </div>
                         </div>
-                    )}
+                        <div>
+                            {this.props.quizgiven ? (<div>
+                                {this.props.quizsuccess ? (<div>
+                                    <br/>
+                                    <br/>
+                                    <div className="teal-text"><h5>CONGRATULATIONS!</h5></div>
+                                    Out Of <b>{this.props.quiztq} </b> Answered <b>{this.props.quizs}</b> Correctly.
+                    <br />
+                                    Your Percentage: <b>{this.props.quizper}% </b></div>) : (
+                                        <div>
+                                            <div className="red-text"><h4>Failed!.</h4></div>
+                                            <br />
+                                            Out Of <b> {this.props.quiztq} </b> Answered <b>{this.props.quizs}</b> Correctly.
+                <br />
+                                            Your Percentage: <b>{this.props.quizper}% </b></div>
+                                    )
+                                }
+                            </div>) : (<div className="row">
+                                        <div className="col s6 l5">
+                                        <br/>
+                                        <br/>
+                                        <input type="password" placeholder="Enter Key" name="key" onChange={this.whenChange}/>
+                                        <span className="btn-small right teal" disabled={this.whenEmpty()} onClick={this.submitKey}>Continue</span>
+                                        </div>
+                            </div>)}
+                        </div>
+                    </div>) : (<div>
+                        <div><h5>React Quiz 1</h5></div>
+                        <ol>
+                            {this.state.Quiz.map((v, i) => <li key={i}><h6 className="teal-text">{v.question}</h6>
+                                {v.allOptions.map((vv, ii) => {
+                                    return <p key={ii}>
+                                        <label><input onChange={this.whenChange} value={vv} name={"ques" + i} type="radio" />
+                                            <span>{vv}</span></label>
+                                    </p>
+                                })}
+                                <br />
+                            </li>
+                            )}
+                        </ol>
+                        <button className="btn" onClick={this.whenSubmit}>Submit</button>
+                    </div>
+                        )}
                 </div>
             </div>
         );
