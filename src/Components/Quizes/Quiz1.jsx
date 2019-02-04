@@ -106,7 +106,6 @@ class Quiz1 extends Component {
     }
 }
 const mapStateToProps = (state) => {
-    console.log(state.quiz)
     return {
         quizgiven: state.quiz.reactQuiz1Given,
         quizs: state.quiz.reactquiz1[0],
