@@ -17,6 +17,13 @@ const QuizReducer = (state = initState, action) => {
             reactquiz1: [action.reactQ1S, action.reactQ1TQ, action.reactQ1P],
             reactquiz1Success: action.reactQ1SS,
         }
+        case Type.REACTQ2:
+        return {
+            ...state,
+            reactQuiz2Given: true,
+            reactquiz2: [action.reactQ2S, action.reactQ2TQ, action.reactQ2P],
+            reactquiz2Success: action.reactQ2SS,
+        }
         default: 
         return state;
     }

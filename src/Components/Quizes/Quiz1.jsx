@@ -97,7 +97,7 @@ class Quiz1 extends Component {
                     <br />
                                     Your Percentage: <b>{this.props.quizper}% </b></div>) : (
                                         <div>
-                                            <div className="red-text"><h4>Failed!.</h4></div>
+                                            <div className="red-text"><h4>Failed!</h4></div>
                                             <br />
                                             Out Of <b> {this.props.quiztq} </b> Answered <b>{this.props.quizs}</b> Correctly.
                 <br />
