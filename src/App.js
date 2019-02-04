@@ -6,15 +6,10 @@ import MyRedux from './Components/Routes/Redux';
 import MyReactNative from './Components/Routes/ReactNative';
 import Routes from './Components/Routes/Routes';
 import Quiz1 from './Components/Quizes/Quiz1';
-import Quiz2 from './Components/Quizes/Quiz2';
+/* import Quiz2 from './Components/Quizes/Quiz2'; */
 import SignIn from './Components/SignIn';
 import { connect } from "react-redux";
 class App extends Component {
-  constructor(){
-    super();
-    this.state = {
-    }
-  }
   render() {
     return (
       <div className="App">
@@ -26,7 +21,7 @@ class App extends Component {
           <Route exact path="/myRedux" component={MyRedux}/>
           <Route exact path="/myReactNative" component={MyReactNative}/>
           <Route exact path="/Quiz1" component={Quiz1} />
-          <Route exact path="Quiz2" component={Quiz2}/>
+          <Route exact path="/Quiz2" component={Quiz1}/>
           </Fragment>
         </Router>) : (<SignIn />)}
       </div>

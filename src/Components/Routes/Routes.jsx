@@ -8,7 +8,7 @@ class Routes extends Component {
     }
     render() {
         return (
-            <div className="teal lighten-5">
+            <div>
                 <br />
                 <div className="center">
                 <h4>Welcome {this.props.username}!</h4>

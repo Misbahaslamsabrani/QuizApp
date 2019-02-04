@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom"
 const MyReactNative = () => {
     return (
-        <div className="teal lighten-5">
+        <div>
         <br />
         <br />
             <div className="row">
@@ -10,11 +10,11 @@ const MyReactNative = () => {
                     <div className="card teal lighten-4">
                         <div className="card-content">
                             <div className="card-title">
-                                <h4>React Native</h4>
+                            <h3 className="teal-text darken-2">React Native</h3>
         </div>
                             <ul>
-                                <Link to="Quiz1"><li>Quiz 1</li></Link>
-                                <Link to="Quiz2"><li>Quiz 2</li></Link>
+                                <Link to="/Quiz1"><li className="black-text">Quiz 1</li></Link>
+                                <Link to="/Quiz2"><li className="black-text">Quiz 2</li></Link>
                             </ul>
                         </div>
                     </div>

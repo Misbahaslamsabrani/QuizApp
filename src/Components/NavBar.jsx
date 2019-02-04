@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 const NavBar = () => {
     return (
-        <div className="teal lighten-5">
+        <div>
         <div className="container">
         <br />
             <nav className="teal">
