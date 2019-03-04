@@ -10,11 +10,10 @@ import Quiz2 from './Components/Quizes/Quiz2';
 import SignIn from './Components/SignIn';
 import { connect } from "react-redux";
 class App extends Component {
-  state = {user: true}
   render() {
     return (
       <div className="App">
-      {this.state.user ? (<Router>
+      {this.props.user ? (<Router>
           <Fragment>
           <NavBar />
           <Route exact path="/" component={Routes} />
